@@ -3,14 +3,14 @@
  <img width=200px height=200px src="https://i.imgur.com/VELRxXl.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">SavjeeCoin</h3>
+<h3 align="center">JoyCoin</h3>
 
 <div align="center">
 
   [![Build Status](https://travis-ci.org/Savjee/SavjeeCoin.svg?branch=master)](https://travis-ci.org/Savjee/SavjeeCoin)
   [![Coverage Status](https://coveralls.io/repos/github/Savjee/SavjeeCoin/badge.svg?branch=master)](https://coveralls.io/github/Savjee/SavjeeCoin?branch=master)
-  [![GitHub Issues](https://img.shields.io/github/issues/Savjee/SavjeeCoin.svg)](https://github.com/Savjee/SavjeeCoin/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Savjee/SavjeeCoin.svg)](https://github.com/Savjee/SavjeeCoin/pulls)
+  [![GitHub Issues](https://img.shields.io/github/issues/Savjee/SavjeeCoin.svg)](https://github.com/tula18/coin/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Savjee/SavjeeCoin.svg)](https://github.com/tula18/coin/pulls)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
@@ -54,7 +54,7 @@ console.log('Private key:', myKey.getPrivate('hex'));
 Now you can create a new instance of a Blockchain:
 
 ```js
-const {Blockchain, Transaction} = require('savjeecoin');
+const {Blockchain, Transaction} = require('JoyCoin');
 
 const myChain = new Blockchain();
 ```
@@ -73,17 +73,3 @@ To finalize this transaction, we have to mine a new block. We give this method o
 ```js
 myChain.minePendingTransactions(myKey.getPublic('hex'));
 ```
-
-
----
-
-## 📽 Video tutorial
-This source code comes from [my video series on YouTube](https://www.youtube.com/watch?v=zVqczFZr124&list=PLzvRQMJ9HDiTqZmbtFisdXFxul5k0F-Q4). You can check them here:
-
-| Video 1: Simple implementation | Video 2: Adding Proof-of-work |
-:-------------------------:|:-------------------------:
-[![](https://img.youtube.com/vi/zVqczFZr124/maxresdefault.jpg)](https://www.youtube.com/watch?v=zVqczFZr124) | [![](https://img.youtube.com/vi/HneatE69814/maxresdefault.jpg)](https://www.youtube.com/watch?v=HneatE69814)
-| Video 3: Mining rewards & transactions | Video 4: Signing transactions |
-[![](https://img.youtube.com/vi/fRV6cGXVQ4I/maxresdefault.jpg)](https://www.youtube.com/watch?v=fRV6cGXVQ4I) | [![](https://img.youtube.com/vi/kWQ84S13-hw/maxresdefault.jpg)](https://www.youtube.com/watch?v=kWQ84S13-hw)
-| Video 5: Building a front-end in Angular
-[![](https://img.youtube.com/vi/AQV0WNpE_3g/maxresdefault.jpg)](https://www.youtube.com/watch?v=AQV0WNpE_3g) |
