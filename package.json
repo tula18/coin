@@ -1,19 +1,20 @@
 {
-  "name": "joy-coin",
+  "name": "blockchain_to_github1",
   "version": "1.0.0",
   "description": "",
   "main": "src/blockchain.js",
   "dependencies": {
-    "crypto-js": "^4.0.0",
-    "debug": "^4.1.1",
     "elliptic": "^6.5.2",
-    "webcrypto": "^0.1.1"
+    "crypto-js": "^4.0.0"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node src/main.js"
   },
-  "repository": "github:tula18/coin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tula18/coin.git"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {

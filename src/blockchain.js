@@ -138,7 +138,7 @@ class Blockchain {
     createGenesisBlock() {
         return new Block(Date.parse('2020-05-25'), [], '0');
     }
-    
+
     /**
      * Returns the latest block on our chain. Useful when you want to create a
      * new Block and you need the hash of the previous Block.
