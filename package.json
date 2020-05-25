@@ -11,10 +11,7 @@
   "scripts": {
     "start": "node src/main.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tula18/coin.git"
-  },
+  "repository": "github:tula18/coin",
   "author": "",
   "license": "ISC",
   "bugs": {
