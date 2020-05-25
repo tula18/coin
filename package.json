@@ -1,0 +1,24 @@
+{
+  "name": "blockchain_to_github1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/blockchain.js",
+  "dependencies": {
+    "elliptic": "^6.5.2",
+    "crypto-js": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tula18/coin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tula18/coin/issues"
+  },
+  "homepage": "https://github.com/tula18/coin#readme"
+}
