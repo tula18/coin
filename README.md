@@ -7,7 +7,7 @@
 
 <div align="center">
 
-  [![Build Status](https://travis-ci.org/github/tula18/coin---test.svg?branch=master)](https://travis-ci.org/github/tula18/coin---test)
+  [![Build Status](https://travis-ci.org/tula18/coin---test.svg?branch=master)](https://travis-ci.org/tula18/coin---test)
   [![Coverage Status](https://coveralls.io/repos/github/tula18/coin---test/badge.svg?branch=master)](https://coveralls.io/github/tula18/coin---test?branch=master)
   [![GitHub Issues](https://img.shields.io/github/issues/Savjee/SavjeeCoin.svg)](https://github.com/tula18/coin---test/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Savjee/SavjeeCoin.svg)](https://github.com/tula18/coin---test/pulls)
