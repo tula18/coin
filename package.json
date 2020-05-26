@@ -4,21 +4,19 @@
   "description": "",
   "main": "src/blockchain.js",
   "dependencies": {
+    "crypto-js": "^4.0.0",
+    "debug": "^4.1.1",
     "elliptic": "^6.5.2",
-    "crypto-js": "^4.0.0"
+    "webcrypto": "^0.1.1"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node src/main.js"
   },
-<<<<<<< HEAD
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tula18/coin.git"
   },
-=======
-  "repository": "github:tula18/coin",
->>>>>>> b185f0850a02ae434f64338a04fa3b2d18d00648
   "author": "",
   "license": "ISC",
   "bugs": {
