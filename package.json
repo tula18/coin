@@ -1,7 +1,7 @@
 {
-  "name": "joy-coin",
+  "name": "joycoin",
   "version": "1.0.0",
-  "description": "",
+  "description": "JoyCoin",
   "main": "src/blockchain.js",
   "dependencies": {
     "crypto-js": "^4.0.0",
