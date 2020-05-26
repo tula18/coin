@@ -1,10 +1,11 @@
-const crypto = require('webcrypto');
+//const crypto = require('webcrypto');
+const crypto = require('crypto');
 const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 const debug = require('debug')('joycoin:blockchain');
 
 class Transaction {
-  /**
+    /**
    * @param {string} fromAddress
    * @param {string} toAddress
    * @param {number} amount
@@ -33,9 +34,9 @@ class Transaction {
      * @param {string} signingKey
      */
     signTransaction(signingKey) {
-        // You can only send a transaction from the wallet that is linked to your
-        // key. So here we check if the fromAddress matches your publicKey
-        if(signingKey.getPublic('hex') !== this.fromAddress) {
+    // You can only send a transaction from the wallet that is linked to your
+    // key. So here we check if the fromAddress matches your publicKey
+        if (signingKey.getPublic('hex') !== this.fromAddress) {
             throw new Error('You cannot sign transactions for other wallets!');
         }
 
@@ -55,12 +56,12 @@ class Transaction {
      * @returns {boolean}
      */
     isValid() {
-        // If the transaction doesn't have a from address we assume it's a
-        // mining reward and that it's valid. You could verify this in a
-        // different way (special field for instance)
-        if(this.fromAddress === null) return true;
+    // If the transaction doesn't have a from address we assume it's a
+    // mining reward and that it's valid. You could verify this in a
+    // different way (special field for instance)
+        if (this.fromAddress === null) return true;
 
-        if(!this.signature || this.signature.length === 0) {
+        if (!this.signature || this.signature.length === 0) {
             throw new Error('No signature in this transaction');
         }
 
@@ -79,8 +80,8 @@ class Block {
         this.timestamp = timestamp;
         this.transactions = transactions;
         this.previousHash = previousHash;
-        this.hash = this.calculateHash();
         this.nonce = 0;
+        this.hash = this.calculateHash();
     }
 
     /**
@@ -100,8 +101,8 @@ class Block {
      * @param {number} difficulty
      */
     mineBlock(difficulty) {
-        while(this.hash.substring(0, difficulty) !== Array(difficulty + 1).join('0')) {
-            this.nonce++
+        while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join('0')) {
+            this.nonce++;
             this.hash = this.calculateHash();
         }
         debug(`Block mined: ${this.hash}`);
@@ -114,8 +115,8 @@ class Block {
      * @returns {boolean}
      */
     hasValidTransactions() {
-        for(const tx of this.transactions) {
-            if(!tx.isValid()) {
+        for (const tx of this.transactions) {
+            if (!tx.isValid()) {
                 return false;
             }
         }
@@ -138,7 +139,7 @@ class Blockchain {
     createGenesisBlock() {
         return new Block(Date.parse('2020-05-25'), [], '0');
     }
-
+    
     /**
      * Returns the latest block on our chain. Useful when you want to create a
      * new Block and you need the hash of the previous Block.
@@ -160,7 +161,7 @@ class Blockchain {
         const rewardTx = new Transaction(null, miningRewardAddress, this.miningReward);
         this.pendingTransactions.push(rewardTx);
 
-        let block = new Block(Date.now(), this.pendingTransactions, this.getLatestBlock().hash);
+        const block = new Block(Date.now(), this.pendingTransactions, this.getLatestBlock().hash);
         block.mineBlock(this.difficulty);
 
         console.log('Block successfully mined!');
@@ -177,7 +178,6 @@ class Blockchain {
      * @param {Transaction} transaction
      */
     addTransaction(transaction) {
-
         if (!transaction.fromAddress || !transaction.toAddress) {
             throw new Error('Transaction must include from and to address');
         }
@@ -209,13 +209,13 @@ class Blockchain {
     getBalanceOfAddress(address) {
         let balance = 0;
 
-        for(const block of this.chain) {
-            for(const trans of block.transactions) {
-                if(trans.fromAddress === address) {
+        for (const block of this.chain) {
+            for (const trans of block.transactions) {
+                if (trans.fromAddress === address) {
                     balance -= trans.amount;
                 }
 
-                if(trans.toAddress === address) {
+                if (trans.toAddress === address) {
                     balance += trans.amount;
                 }
             }
@@ -233,18 +233,18 @@ class Blockchain {
      * @return {Transaction[]}
      */
     getAllTransactionsForWallet(address) {
-      const txs = [];
+        const txs = [];
 
-      for (const block of this.chain) {
-        for (const tx of block.transactions) {
-          if (tx.fromAddress === address || tx.toAddress === address) {
-            txs.push(tx);
-          }
+        for (const block of this.chain) {
+            for (const tx of block.transactions) {
+                if (tx.fromAddress === address || tx.toAddress === address) {
+                    txs.push(tx);
+                }
+            }
         }
-      }
 
-      debug('get transactions for wallet count: %s', txs.length);
-      return txs;
+        debug('get transactions for wallet count: %s', txs.length);
+        return txs;
     }
 
     /**
@@ -255,17 +255,17 @@ class Blockchain {
      * @returns {boolean}
      */
     isChainValid() {
-        // Check if the Genesis block hasn't been tampered with by comparing
-        // the output of createGenesisBlock with the first block on our chain
+    // Check if the Genesis block hasn't been tampered with by comparing
+    // the output of createGenesisBlock with the first block on our chain
         const realGenesis = JSON.stringify(this.createGenesisBlock());
 
         if (realGenesis !== JSON.stringify(this.chain[0])) {
-            return false
+            return false;
         }
 
         // Check the remaining blocks on the chain to see if there hashes and
         // signatures are correct
-        for(let i = 1; i < this.chain.length; i++) {
+        for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
 
             if (!currentBlock.hasValidTransactions()) {

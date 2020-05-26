@@ -1,5 +1,5 @@
 {
-  "name": "blockchain_to_github1",
+  "name": "joy-coin",
   "version": "1.0.0",
   "description": "",
   "main": "src/blockchain.js",
@@ -13,11 +13,8 @@
   "scripts": {
     "start": "node src/main.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tula18/coin.git"
-  },
-  "author": "",
+  "repository": "github:tula18/coin",
+  "author": "almog cohen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tula18/coin/issues"

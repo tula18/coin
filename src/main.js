@@ -12,7 +12,7 @@ const myWalletAddress = myKey.getPublic('hex');
 
 
 // Create new instance of Blockchain class
-let coin = new Blockchain();
+const coin = new Blockchain();
 
 
 // Mine block
