@@ -30,7 +30,7 @@
 
 ### Install library
 ```
-npm install --save savjeecoin
+npm install --save JoyCoin
 ```
 
 ### Generate a keypair
